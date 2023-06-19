@@ -44,8 +44,6 @@ def shell_sort(arr):
         gap = math.floor(gap / 3)
 
 
-
-
 # 冒泡排序
 def bubble_sort(arr):
     for i in range(len(arr) - 1):
