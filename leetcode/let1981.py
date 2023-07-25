@@ -68,7 +68,27 @@ class Solution:
                 return i
 
 
+def check(nums, target):
+    result = []
+    for i in range(nums.__len__()):
+        if nums.__len__() > 1:
+            check(nums[1:], target - nums[0][i])
+        else:
+            # 差的数组
+            result.append((target - nums[0][i]).__abs__())
+    result.sort()
+    if result:
+        return result[0]
+    else:
+        return None
+
+
 if __name__ == '__main__':
 
-    d = Solution().minimizeTheDifference([[1, 2, 3], [4, 5, 6], [7, 8, 9]], 13)
-    print(d)
+    # d = Solution().minimizeTheDifference([[1, 2, 3], [4, 5, 6], [7, 8, 9]], 13)
+    # d = check([[1, 2, 3], [4, 5, 6], [7, 8, 9]], 13)
+    # print(d)
+    a = False
+    b = False
+    c = a + b
+    print(c)
