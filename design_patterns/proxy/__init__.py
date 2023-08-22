@@ -3,11 +3,12 @@ from abc import ABCMeta, abstractmethod
 
 
 class ReceiveParcel(metaclass=ABCMeta):
-    self.__name = None
+
+    def __init__(self):
+        self.__name = None
 
     def get_name(self):
         return self.__name
-
 
     @abstractmethod
     def receive(self, parcel):
