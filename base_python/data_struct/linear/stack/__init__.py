@@ -41,6 +41,24 @@ def par_check(symbol_string):
         return False
 
 
+# 十进制转任意进制
+def divdebybase(dec_num, base):
+    rem_stack = StackObj()
+    while dec_num > 0:
+        # 对除2取余
+        rem = dec_num & base
+        rem_stack.push(rem)
+        # 获取对2整除结果
+        dec_num = dec_num // base
+
+    # 用str接二进制结果
+    bin_string = ""
+    while not rem_stack.is_empty():
+        bin_string = bin_string + str(rem_stack.pop())
+
+    return bin_string
+
+
 if __name__ == '__main__':
     print(par_check('((()()))(())'))
 
