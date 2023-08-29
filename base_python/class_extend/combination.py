@@ -1,5 +1,4 @@
 # 组合多个类
-
 class Turtle:
     def __init__(self, x):
         self.num = x
