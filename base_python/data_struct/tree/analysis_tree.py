@@ -1,3 +1,4 @@
+import operator
 from base_python.data_struct.linear.stack import StackObj
 from base_python.data_struct.tree.brnary_tree import BriaryTree
 
@@ -32,3 +33,21 @@ def build_parse_tree(fpexp):
         else:
             raise ValueError('unknown operator: {}'.format(i))
     return e_tree
+
+
+# 递归计算
+def evaluate(parse_tree):
+    opers = {
+        '+': operator.add,
+        '-': operator.sub,
+        '*': operator.mul,
+        '/': operator.truediv
+    }
+    left_c = parse_tree.get_left_child()
+    right_c = parse_tree.get_right_child()
+
+    if left_c and right_c:
+        fn = opers[parse_tree.get_root_val()]
+        return fn(evaluate(left_c), evaluate(right_c))
+    else:
+        return parse_tree.get_root_val()
